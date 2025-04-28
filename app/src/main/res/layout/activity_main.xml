@@ -7,4 +7,32 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_login_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="로그인되었습니다."
+            android:textSize="10pt"/>
+
+        <Button
+            android:id="@+id/btn_web_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="웹 로그인"
+            />
+        <Button
+            android:id="@+id/btn_app_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="앱 로그인"
+            />
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

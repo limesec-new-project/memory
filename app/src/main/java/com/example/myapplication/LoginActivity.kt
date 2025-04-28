@@ -25,6 +25,13 @@ class LoginActivity : AppCompatActivity() {
         binding.btnLogin.setOnClickListener {
             val userId = binding.etId.text.toString()
             val userPassword = binding.etPassword.text.toString()
+
+            // 로그인 로직
+            // id: testuser pw:testuser
+            if(userId=="testuser" && userPassword=="testuser"){
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }
         }
 
         binding.tvSignUp.setOnClickListener {
@@ -33,35 +40,35 @@ class LoginActivity : AppCompatActivity() {
             }
             startActivity(intent)
             finish()
-
         }
 
-        loginViewModel.loginResult.observe(this) { loginResult ->
-            if (loginResult != null) {
-                if (loginResult.code == 200) {
-                    // 로그인 성공 후 SharedPreferneces에 토큰 저장
-                    loginViewModel.cookie.observe(this){ cookie ->
-                        saveToken(cookie, this)
-                    }
 
-                    // 게시글 작성 페이지에서 왔을 경우
-                    val afterLoginAction = intent.getStringExtra("afterLoginAction")
-                    if (afterLoginAction=="addPost") {
-                        setResult(Activity.RESULT_OK)
-                    }
-                    else {
-                        // main activity로 이동
-                        val intent = Intent(this, MainActivity::class.java)
-                        startActivity(intent)
-                    }
-
-                    finish() // LoginActivity 종료
-                }
-                Toast.makeText(this, loginResult.msg, Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(this, "문제가 발생했습니다. 다시 시도해주세요.", Toast.LENGTH_SHORT).show()
-            }
-        }
+//        loginViewModel.loginResult.observe(this) { loginResult ->
+//            if (loginResult != null) {
+//                if (loginResult.code == 200) {
+//                    // 로그인 성공 후 SharedPreferneces에 토큰 저장
+//                    loginViewModel.cookie.observe(this){ cookie ->
+//                        saveToken(cookie, this)
+//                    }
+//
+//                    // 게시글 작성 페이지에서 왔을 경우
+//                    val afterLoginAction = intent.getStringExtra("afterLoginAction")
+//                    if (afterLoginAction=="addPost") {
+//                        setResult(Activity.RESULT_OK)
+//                    }
+//                    else {
+//                        // main activity로 이동
+//                        val intent = Intent(this, MainActivity::class.java)
+//                        startActivity(intent)
+//                    }
+//
+//                    finish() // LoginActivity 종료
+//                }
+//                Toast.makeText(this, loginResult.msg, Toast.LENGTH_SHORT).show()
+//            } else {
+//                Toast.makeText(this, "문제가 발생했습니다. 다시 시도해주세요.", Toast.LENGTH_SHORT).show()
+//            }
+//        }
 
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
