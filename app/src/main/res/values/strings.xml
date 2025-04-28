@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="sign_up"><font color='c4c4c4'>회원이 아니신가요? </font><b>회원가입</b></string>
+</resources>
