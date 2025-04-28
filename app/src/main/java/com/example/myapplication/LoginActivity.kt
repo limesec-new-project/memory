@@ -27,10 +27,16 @@ class LoginActivity : AppCompatActivity() {
             val userPassword = binding.etPassword.text.toString()
 
             // 로그인 로직
-            // id: testuser pw:testuser
-            if(userId=="testuser" && userPassword=="testuser"){
+            // id: test pw:test
+            if(userId=="test" && userPassword=="test"){
                 val intent = Intent(this, MainActivity::class.java)
+                intent.putExtra("login_status", "Y")
                 startActivity(intent)
+                finish()
+
+            }
+            else{
+//                Toast.makeText()
             }
         }
 
