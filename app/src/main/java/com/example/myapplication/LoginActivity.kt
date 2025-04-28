@@ -28,7 +28,7 @@ class LoginActivity : AppCompatActivity() {
 
             // 로그인 로직
             // id: test pw:test
-            if(userId=="test" && userPassword=="test"){
+            if(userId=="usertest" && userPassword=="usertest"){
                 val intent = Intent(this, MainActivity::class.java)
                 intent.putExtra("login_status", "Y")
                 startActivity(intent)
