@@ -40,6 +40,7 @@ class MainActivity : AppCompatActivity() {
                 binding.tvLoginStatus.text = "로그인 되었습니다."
             }
             binding.btnLogout.visibility= View.VISIBLE
+            binding.btnWebBridgeLogin.visibility=View.GONE
             binding.btnAppLogin.visibility= View.GONE
             binding.btnWebLogin.visibility= View.GONE
 
@@ -48,6 +49,7 @@ class MainActivity : AppCompatActivity() {
         else{
             binding.tvLoginStatus.text = "로그인되지 않았습니다."
             binding.btnLogout.visibility= View.GONE
+            binding.btnWebBridgeLogin.visibility=View.VISIBLE
             binding.btnAppLogin.visibility= View.VISIBLE
             binding.btnWebLogin.visibility= View.VISIBLE
         }
@@ -73,6 +75,12 @@ class MainActivity : AppCompatActivity() {
             loginStatus = "N"
 
             val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        binding.btnWebBridgeLogin.setOnClickListener {
+            val intent = Intent(this, WebBridgeLoginActivity::class.java)
             startActivity(intent)
             finish()
         }

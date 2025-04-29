@@ -2,10 +2,13 @@ package com.example.myapplication
 
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.view.View
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.databinding.ActivityLoginWebBinding
 
@@ -49,5 +52,7 @@ class WebLoginActivity : AppCompatActivity() {
 
         // 서버에 배포된 웹 로그인 주소를 여기에 적어야 함!
         webView.loadUrl("https://7fdad76f-0bff-4920-9ce9-5936fe73ebea-00-4fnc66eafuyg.pike.replit.dev/login")
+//        webView.importantForAutofill = View.IMPORTANT_FOR_AUTOFILL_NO
+
     }
 }
